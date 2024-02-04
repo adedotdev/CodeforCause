@@ -6,6 +6,7 @@ using System;
 using System.IO;
 public class Victory : MonoBehaviour
 {
+    public AudioSource EndOfLevelSound;
     public AudioSource startMusic;
     public AudioSource audioSource;
     public AudioSource backgroundMusic;
@@ -47,6 +48,7 @@ public class Victory : MonoBehaviour
             backgroundMusic.Stop();
             // Play victory sound
             audioSource.Play();
+            EndOfLevelSound.Play();
             ToJSON("Assets/Scores.txt",time.text.ToString());
             levelManager.isRunning = false;
 

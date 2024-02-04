@@ -50,6 +50,7 @@ public class Timer : MonoBehaviour
         if (levelManager.trophyReached) 
         {
             elapsedTime = 0;
+            levelManager.EndOfLevelSound.Play();
         }
     }
 }

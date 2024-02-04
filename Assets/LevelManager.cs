@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public AudioSource EndOfLevelSound;
     public bool obstacleCollision = false;
     public bool trophyReached = false;
     public bool isRunning = false;
