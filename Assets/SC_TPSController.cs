@@ -13,6 +13,7 @@ public class SC_TPSController : MonoBehaviour
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
+    public AudioSource WallBump;
     Vector2 rotation = Vector2.zero;
 
     [HideInInspector]
@@ -58,6 +59,18 @@ public class SC_TPSController : MonoBehaviour
         if (levelManager.isRunning)
         {
             characterController.Move(moveDirection * Time.deltaTime);
+        }
+        if (this.transform.position.x > 24 || this.transform.position.x <-24 || this.transform.position.z > 24|| this.transform.position.z <-24)
+
+        {
+            if (!WallBump.isPlaying)
+            {
+                WallBump.Play();
+            } 
+        }
+        else
+        {
+            WallBump.Stop();
         }
 
     }
