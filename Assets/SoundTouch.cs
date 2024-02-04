@@ -8,14 +8,13 @@ public class Victory : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource backgroundMusic;
     private bool isVictory = false;
+    public LevelManager levelManager;
 
     void Start()
     {
-        // Play start music when the game starts
-        startMusic.Play();
 
-        // Schedule the background music to start after the duration of the start music
-        Invoke("StartBackgroundMusic", startMusic.clip.length);
+        levelManager.isRunning = false;
+        StartGame();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -28,12 +27,26 @@ public class Victory : MonoBehaviour
             backgroundMusic.Stop();
             // Play victory sound
             audioSource.Play();
+            levelManager.isRunning = false;
+
+            Invoke("StartGame", 15);
         }
+    }
+    void StartGame()
+    {
+        isVictory = false;
+        // Play start music when the game starts
+        startMusic.Play();
+
+        // Schedule the background music to start after the duration of the start music
+        Invoke("StartBackgroundMusic", startMusic.clip.length);
+
     }
 
     void StartBackgroundMusic()
     {
         // Start playing background music
         backgroundMusic.Play();
+        levelManager.isRunning = true;
     }
 }

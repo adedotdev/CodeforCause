@@ -17,6 +17,7 @@ public class SC_TPSController : MonoBehaviour
 
     [HideInInspector]
     public bool canMove = true;
+    public LevelManager levelManager;
 
     void Start()
     {
@@ -26,6 +27,13 @@ public class SC_TPSController : MonoBehaviour
 
     void Update()
     {
+        if (levelManager.newGame)
+        {
+            UnityEngine.Debug.Log("ResetPlayer");
+            this.transform.position = new Vector3(10, 0, -18);
+            Physics.SyncTransforms();
+        }
+
         if (characterController.isGrounded)
         {
             // We are grounded, so recalculate move direction based on axes
@@ -47,16 +55,10 @@ public class SC_TPSController : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
-
-        // Player and Camera rotation
-        if (canMove)
+        if (levelManager.isRunning)
         {
-        //    rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
-        //    rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
-        //    rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
-        //    playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
-        //    transform.eulerAngles = new Vector2(0, rotation.y);
+            characterController.Move(moveDirection * Time.deltaTime);
         }
+
     }
 }

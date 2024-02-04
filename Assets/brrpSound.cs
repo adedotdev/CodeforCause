@@ -9,6 +9,7 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class PlaySoundAtInterval : MonoBehaviour
 {
+    public LevelManager levelManager;
 
     // Public variables
     // Will the sound play on startup?
@@ -32,6 +33,8 @@ public class PlaySoundAtInterval : MonoBehaviour
     // Tracks to see if we've played this at startup.
     private bool playedAtStartup = false;
 
+    private bool previousState = false;
+
     // Use this for initialization
     void Start()
     {
@@ -48,21 +51,29 @@ public class PlaySoundAtInterval : MonoBehaviour
         float distance = Vector3.Distance(Player.transform.position, this.transform.position);
         if (distance < 5)
         {
+            levelManager.obstacleCollision = true;
+            previousState = true;
             interval = 0.3f;
             PlayerFar = false;
-            UnityEngine.Debug.Log("SuperClose");
         }
         else if (distance < 10)
         {
+            if (previousState) 
+            { 
+                levelManager.obstacleCollision = false;
+                previousState = false;
+            }
             interval = 0.7f;
             PlayerFar = false;
-
-            UnityEngine.Debug.Log("Close");
         }
         else
         {
+            if (previousState)
+            {
+                levelManager.obstacleCollision = false;
+                previousState = false;
+            }
             PlayerFar = true;
-            UnityEngine.Debug.Log("Far");
         }
 
         if (!disableScript)
@@ -82,9 +93,8 @@ public class PlaySoundAtInterval : MonoBehaviour
             if (trackedTime >= interval)
             {
 
-                UnityEngine.Debug.Log("beep");
                 // Play the sound, reset the timer
-                if (!PlayerFar)
+                if (!PlayerFar && levelManager.isRunning)
                 {
                     clipToPlay.Play();
                 }
