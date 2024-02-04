@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2157,6 +2157,7 @@ MonoBehaviour:
   audioSource: {fileID: 1135697113}
   backgroundMusic: {fileID: 1135697121}
   levelManager: {fileID: 1331220407}
+  time: {fileID: 1702776495}
 --- !u!222 &1135697115
 CanvasRenderer:
   m_ObjectHideFlags: 0
