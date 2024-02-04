@@ -24,6 +24,8 @@ public class Victory : MonoBehaviour
         TimeSpan ts2 = TimeSpan.ParseExact(time2, "mm\\:ss", null);
         return ts1 < ts2;
     }
+    
+    // Record high score.
     public void ToJSON(string path,string time)
     {
         string jsonContent = File.ReadAllText(path);

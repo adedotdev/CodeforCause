@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -60,18 +61,16 @@ public class SC_TPSController : MonoBehaviour
         {
             characterController.Move(moveDirection * Time.deltaTime);
         }
-        if (this.transform.position.x > 24 || this.transform.position.x <-24 || this.transform.position.z > 24|| this.transform.position.z <-24)
-
-        {
+        if (this.transform.position.x > 24 || this.transform.position.x <-24 || this.transform.position.z > 24|| this.transform.position.z <-24){
             if (!WallBump.isPlaying)
             {
                 WallBump.Play();
+                Gamepad.current?.SetMotorSpeeds(0.5f, 0.5f);
             } 
         }
-        else
-        {
+        else{
             WallBump.Stop();
+            Gamepad.current?.SetMotorSpeeds(0.0f, 0.0f);
         }
-
     }
 }
