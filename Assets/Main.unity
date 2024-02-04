@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 257475258}
@@ -880,6 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 353711529}
@@ -1396,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 542167833}
@@ -1747,6 +1750,7 @@ MonoBehaviour:
   lookSpeed: 2
   lookXLimit: 60
   canMove: 1
+  levelManager: {fileID: 1331220407}
 --- !u!143 &891296927
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1810,6 +1814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 1702776495}
   elapsedTime: 0
+  levelManager: {fileID: 1331220407}
 --- !u!1 &1097508516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2058,7 @@ MonoBehaviour:
   startMusic: {fileID: 1135697122}
   audioSource: {fileID: 1135697113}
   backgroundMusic: {fileID: 1135697121}
+  levelManager: {fileID: 1331220407}
 --- !u!222 &1135697115
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2500,6 +2506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 1146174521}
@@ -2805,6 +2812,7 @@ GameObject:
   - component: {fileID: 1331220406}
   - component: {fileID: 1331220405}
   - component: {fileID: 1331220404}
+  - component: {fileID: 1331220407}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2862,6 +2870,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331220407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331220403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d405cc08957aa4db49463b81c9881d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleCollision: 0
+  trophyReached: 0
+  isRunning: 0
+  previousIsRunning: 0
+  newGame: 0
 --- !u!1 &1368927507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,6 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 1368927508}
@@ -3578,6 +3604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd205aca3cd489a4a82d067b7fdc7186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1331220407}
   playAtStartup: 0
   interval: 3
   clipToPlay: {fileID: 1786996993}
